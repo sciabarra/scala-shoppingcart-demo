@@ -6,18 +6,32 @@ import org.scalatest.{Matchers, FunSpec}
 class ShoppingCartSpec extends FunSpec with Matchers {
   describe("shopping cart") {
 
+    import ShoppingCart._
+
     it("contains only apple and oranges") {
-      pending
+      parse(Array("apple", "orange", "pear", "apple")) should contain only(Apple, Orange)
+      parse(Array("apple", "orange", "pear", "apple")) should contain only(Apple, Orange)
+      parse(Array("orange", "pear")) should contain only(Apple, Orange)
     }
-    it("apple costs 60p"){
-      pending
+
+    it("apple costs 60p") {
+      price(Apple) shouldBe 60
     }
-    it("orange costs 25p"){
-      pending
+    it("orange costs 25p") {
+      price(Orange) shouldBe 25
     }
+
     it("input from array of string") {
-      pending
+      parse(Array("apple", "orange", "apple")) should be (Apple :: Orange :: Apple :: Nil)
     }
+
+    it("checkout") {
+      checkout(List()) shouldBe 0
+      checkout(List(Apple)) shouldBe 60
+      checkout(List(Apple, Orange)) shouldBe 80
+      checkout(List(Apple, Orange, Apple)) shouldBe 145
+    }
+
   }
 
 }
