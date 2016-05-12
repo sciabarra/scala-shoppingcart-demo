@@ -5,12 +5,17 @@
 object ShoppingCart {
 
   sealed trait Item
+
   case object Apple extends Item
+
   case object Orange extends Item
 
-  def price(item:Item): Int = 0
+  def price(item: Item): Int = item match {
+    case Apple => 60
+    case Orange => 25
+  }
 
-  def parse(input: Array[String]):List[Item] = Nil
+  def parse(input: Array[String]): List[Item] = Nil
 
   def checkout(cart: List[Item]) = 0
 }
