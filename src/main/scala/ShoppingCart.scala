@@ -30,4 +30,6 @@ object ShoppingCart {
     case Nil => 0
     case item :: rest => price(item) + checkout(rest)
   }
+
+  def offer(cart: List[Item]) = cart
 }
