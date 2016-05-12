@@ -15,7 +15,16 @@ object ShoppingCart {
     case Orange => 25
   }
 
-  def parse(input: Array[String]): List[Item] = Nil
+  def parse(input: Array[String]): List[Item] = {
+    val seq = for {
+      item <- input
+      if item == "apple" || item == "orange"
+    } yield item match {
+      case "apple" => Apple
+      case "orange" => Orange
+    }
+    seq.toList
+  }
 
   def checkout(cart: List[Item]): Int = cart match {
     case Nil => 0
