@@ -17,5 +17,8 @@ object ShoppingCart {
 
   def parse(input: Array[String]): List[Item] = Nil
 
-  def checkout(cart: List[Item]) = 0
+  def checkout(cart: List[Item]): Int = cart match {
+    case Nil => 0
+    case item :: rest => price(item) + checkout(rest)
+  }
 }

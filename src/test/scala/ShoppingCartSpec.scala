@@ -28,7 +28,7 @@ class ShoppingCartSpec extends FunSpec with Matchers {
     it("checkout") {
       checkout(List()) shouldBe 0
       checkout(List(Apple)) shouldBe 60
-      checkout(List(Apple, Orange)) shouldBe 80
+      checkout(List(Apple, Orange)) shouldBe 85
       checkout(List(Apple, Orange, Apple)) shouldBe 145
     }
 
