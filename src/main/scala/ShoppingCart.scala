@@ -31,5 +31,23 @@ object ShoppingCart {
     case item :: rest => price(item) + checkout(rest)
   }
 
-  def offer(cart: List[Item]) = cart
+  def offer(cart: List[Item]): List[Item] = offer1(cart, 0, 0)
+
+  def offer1(cart: List[Item],
+             orangeCount: Int,
+             appleCount: Int): List[Item] = cart match {
+    case Nil => Nil
+    case Apple :: rest =>
+      val appleCount1 = appleCount + 1
+      if (appleCount1 % 2 == 0)
+        offer1(rest, orangeCount, appleCount1)
+      else
+        Apple :: offer1(rest, orangeCount, appleCount1)
+    case Orange :: rest =>
+      val orangeCount1 = orangeCount + 1
+      if(orangeCount1 % 3 == 0)
+        offer1(rest, orangeCount1, appleCount)
+      else
+        Orange :: offer1(rest, orangeCount1, appleCount)
+  }
 }
