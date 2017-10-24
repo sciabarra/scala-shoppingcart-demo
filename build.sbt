@@ -2,8 +2,8 @@ name := "capgemini-test"
 
 version := "1.0"
 
-scalaVersion := "2.11.5"
+scalaVersion := "2.12.4"
 
-libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.6" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 
     

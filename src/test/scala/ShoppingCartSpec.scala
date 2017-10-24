@@ -1,7 +1,7 @@
 import org.scalatest.{Matchers, FunSpec}
 
 /**
-  * Created by msciab on 12/05/16.
+  * Created by msciab on 24/06/17.
   */
 class ShoppingCartSpec extends FunSpec with Matchers {
   describe("shopping cart") {
@@ -11,7 +11,7 @@ class ShoppingCartSpec extends FunSpec with Matchers {
     it("contains only apple and oranges") {
       parse(Array("apple", "orange", "pear", "apple")) should contain only(Apple, Orange)
       parse(Array("apple", "orange", "pear", "apple")) should contain only(Apple, Orange)
-      parse(Array("orange", "pear")) should contain only(Apple, Orange)
+      parse(Array("orange", "pear")) should contain only(Orange)
     }
 
     it("apple costs 60p") {

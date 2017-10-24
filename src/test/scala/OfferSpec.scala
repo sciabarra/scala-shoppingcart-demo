@@ -1,7 +1,7 @@
 import org.scalatest.{FunSpec, Matchers}
 
 /**
-  * Created by msciab on 12/05/16.
+  * Created by msciab on 24/10/17.
   */
 class OfferSpec extends FunSpec with Matchers {
   import ShoppingCart._
